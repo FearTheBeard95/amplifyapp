@@ -7,6 +7,7 @@ import {
   deleteTodo as deleteTodoMutation,
 } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
+import '@aws-amplify/ui-react/styles.css';
 
 const initialFormState = { name: '', description: '' };
 
@@ -83,7 +84,9 @@ function App() {
             <h2>{note.name}</h2>
             <p>{note.description}</p>
             <button onClick={() => deleteTodo(note)}>Delete note</button>
-            {note.image && <img src={note.image} style={{ width: 400 }} />}
+            {note.image && (
+              <img src={note.image} style={{ width: 400 }} alt='images' />
+            )}
           </div>
         ))}
       </div>
